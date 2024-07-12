@@ -1,0 +1,183 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Digital-7+Mono&display=swap');
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #1a1a1a;
+    margin: 0;
+    font-family: 'Orbitron', sans-serif;
+    color: #fff;
+}
+
+.calculator {
+    background: linear-gradient(145deg, #222, #333);
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+    width: 350px;
+    border: 2px solid #555;
+    z-index: 1;
+    margin-bottom: 20px;
+    transition: width 0.3s ease;
+}
+
+.calculator.scientific-mode {
+    width: 600px; /* Increase width for scientific mode */
+}
+
+.calculator-display {
+    width: 96%;
+    height: 50px;
+    font-size: 24px;
+    text-align: right;
+    padding: 10px;
+    border: none;
+    background-color: #000;
+    border-radius: 10px;
+    color: #0f0;
+    box-shadow: inset 0 4px 8px rgba(0, 0, 0, 0.7);
+    margin-bottom: 20px;
+    transition: color 0.3s ease;
+    font-family: 'Digital-7 Mono', monospace;
+}
+
+.calculator-buttons {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 10px;
+}
+
+.calculator.scientific-mode .calculator-buttons.basic {
+    grid-template-columns: repeat(5, 1fr); /* Adjust grid for scientific mode */
+}
+
+.calculator.scientific-mode .calculator-buttons.scientific {
+    grid-template-columns: repeat(5, 1fr); /* Adjust grid for scientific buttons */
+    margin-top: 10px; /* Add spacing between basic and scientific buttons */
+}
+
+.btn {
+    background: linear-gradient(145deg, #444, #222);
+    border: none;
+    color: #fff;
+    padding: 15px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.btn:hover {
+    background: linear-gradient(145deg, #555, #333);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+.large-btn {
+    grid-column: span 2;
+}
+
+.equals-btn {
+    grid-column: span 2;
+    background: linear-gradient(145deg, #f00, #c00);
+    color: #fff;
+}
+
+.toggle-btn {
+    background: linear-gradient(145deg, #555, #333);
+    border: none;
+    color: #fff;
+    padding: 10px;
+    font-size: 18px;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    width: 100%;
+    transition: background 0.3s ease, box-shadow 0.3s ease, color 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+}
+
+.toggle-btn:hover {
+    background: linear-gradient(145deg, #666, #444);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.7);
+}
+
+/* Color picker styling */
+.color-picker-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+}
+
+.color-picker-label {
+    font-size: 16px;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+#color-picker {
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    height: 20px;
+    width: 50px;
+    margin-top: 5px;
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .calculator {
+        width: 80%; /* Adjust calculator width for tablets */
+    }
+
+    .calculator.scientific-mode {
+        width: 90%; /* Adjust width for scientific mode on tablets */
+    }
+
+    .toggle-btn {
+        width: 80%;
+        margin-left: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    .calculator {
+        width: 100%; /* Adjust calculator width for mobile devices */
+    }
+
+    .calculator.scientific-mode {
+        width: 100%; /* Adjust width for scientific mode on mobile devices */
+    }
+
+    .calculator-buttons {
+        grid-template-columns: repeat(3, 1fr); /* Adjust button grid for mobile */
+    }
+
+    .calculator.scientific-mode .calculator-buttons.basic {
+        grid-template-columns: repeat(4, 1fr); /* Adjust grid for scientific mode on mobile */
+    }
+
+    .calculator.scientific-mode .calculator-buttons.scientific {
+        grid-template-columns: repeat(4, 1fr); /* Adjust grid for scientific buttons on mobile */
+    }
+
+    .toggle-btn {
+        width: 100%;
+        margin: 0;
+    }
+
+    .color-picker-container {
+        margin-top: 10px;
+    }
+}
+
+.scientific {
+    display: none;
+}
+
+.show-scientific .scientific {
+    display: grid;
+}
